@@ -1,8 +1,12 @@
 The OutputBinsPDE project demonstrates how to write a Cocoa PDE that supports
-PPD features and that runs on Mac OS X versions 10.5 and later.  This version
-does not contain code that demonstrates proper runtime handling in Mac OS X
-version 10.4; the Leopard Developer Tools contains such a version.
+PPD features. This version runs on Mac OS X versions 10.6 and later. 
 
+NOTE:
+This version is an update to previous versions in that it is 100% Cocoa and
+does not link to the Carbon framework. It provides help using the
+NSHelpManager method registerBooksInBundle: which is only available on 10.6
+and later. For creating a PDE that works in Mac OS X prior to 10.6
+and provides help, you need to use Carbon methods for doing so.
 
 INSTALLATION
 

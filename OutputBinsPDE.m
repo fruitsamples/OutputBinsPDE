@@ -5,7 +5,7 @@
 	Description:
 		Implementation of an example PPD based printer module printing dialog extension
 
-	Copyright © 2000-2009 Apple Inc. All Rights Reserved.
+	Copyright © 2000-2010 Apple Inc. All Rights Reserved.
 *******************************************************************************/
 /*
  IMPORTANT: This Apple software is supplied to you by Apple Inc.,
@@ -135,15 +135,9 @@
 	    // Create a default userChoice value, independent of any particular settings.
 		[ self setDefaults ] ;
 		
-		// Register the help book.
-		FSRef fsref;
-		NSString * path = [pdeBundle bundlePath];
-		NSURL * url = [NSURL fileURLWithPath:path];
-		if(CFURLGetFSRef((CFURLRef)url, &fsref)){
-			OSStatus err = AHRegisterHelpBook(&fsref);
-			if(err)
-				NSLog(@"OutputBins PDE got an error %d registering its help book!", err);
-		}
+		// Register the help book. registerBooksInBundle: is only available in Mac OS X 10.6 and later.
+		if(![[NSHelpManager sharedHelpManager] registerBooksInBundle: pdeBundle])
+			NSLog(@"OutputBins PDE got an error registering its help book!");
 	}else{
 		// This PPD doesn't support the OutputBin option so there is no need to continue.
 	    [ pdePluginCallbackObject release ];
@@ -257,9 +251,8 @@
 	BOOL showDefaultHelp = true;
 	NSString *helpBookName = (NSString *)[ pdeBundle objectForInfoDictionaryKey: @"CFBundleHelpBookName" ] ;
 	if(helpBookName){
-		OSStatus err = AHGotoPage((CFStringRef)helpBookName, NULL, NULL);
-		if(!err)
-			showDefaultHelp = false;
+		[[NSHelpManager sharedHelpManager] openHelpAnchor:@"AppleTitle" inBook:helpBookName];
+		showDefaultHelp = false;
 	}
 	
 	return showDefaultHelp;

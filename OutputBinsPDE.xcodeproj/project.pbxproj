@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D14491B0AD57A67002A9E6E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D1449190AD57A67002A9E6E /* Localizable.strings */; };
 		2D29E60F0BE91710008C3BAC /* SampleHelp.helpindex in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D29E60D0BE91702008C3BAC /* SampleHelp.helpindex */; };
-		2D3214970BE7E42300B28371 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54F471F09BCFB9B00C2275A /* Carbon.framework */; };
 		2D3214AC0BE7E89800B28371 /* SampleHelp.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D3214950BE7DEEC00B28371 /* SampleHelp.html */; };
 		2DFA92A30ACD96150007BBAC /* OutputBinsPDE.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA92A20ACD96150007BBAC /* OutputBinsPDE.m */; };
 		356A37490DD2739A007BB47A /* OutputBinsPDETest.ppd in Copy PPD */ = {isa = PBXBuildFile; fileRef = 356A37470DD2738A007BB47A /* OutputBinsPDETest.ppd */; };
@@ -53,7 +52,6 @@
 		8D5B49B6048680CD000E48DA /* OutputBinsPDE.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutputBinsPDE.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D54F471609BCFAD700C2275A /* OutputBinsPDE.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = OutputBinsPDE.h; sourceTree = "<group>"; };
-		D54F471F09BCFB9B00C2275A /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		D54F478C09BCFF2200C2275A /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = /usr/lib/libcups.dylib; sourceTree = "<absolute>"; };
 		D54F47A709BD02BF00C2275A /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/OutputBinsPDE.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +63,6 @@
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				D54F478D09BCFF2200C2275A /* libcups.dylib in Frameworks */,
-				2D3214970BE7E42300B28371 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				D54F478C09BCFF2200C2275A /* libcups.dylib */,
-				D54F471F09BCFB9B00C2275A /* Carbon.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -235,10 +231,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks",
-					"$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Versions/A/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Versions/A/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = YES;
@@ -265,10 +258,7 @@
 					ppc64,
 					x86_64,
 				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks",
-					"$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Versions/A/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Versions/A/Frameworks";
 				GCC_ENABLE_OBJC_GC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
